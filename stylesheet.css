@@ -1,0 +1,104 @@
+/*.modal {
+         display: none;
+	 position: fixed;
+	 z-index: 1000;
+	 top: 0;
+	 left: 0;
+	 height: 100%;
+	 width: 100%;
+	 background: rgba(255,255,255,.8)
+		     url('./ajax-loader.gif')
+		     50% 50%
+		     no-repeat;
+}
+
+body.loading { overflow: hidden ;}
+
+body.loading.modal { display: block;}*/
+#loaderPic { display:none; }
+#resultButtons { display:none; }
+#kmeans-results {display:none; }
+#stc-results { display: none; }
+#credits { position: absolute;
+           bottom: 0;
+         }
+
+#welcome {
+    //position: relative;
+    border-style: dotted;
+    border-width: 1px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    //top: 50%;
+    //left: 50%;
+    //margin-right: -50%;
+    //transform: translate(-50%, -50%)	
+}
+
+#search {
+    //position: relative;
+    //border-style: dotted;
+    //border-width: 1px;
+    //padding-left: 50px;
+    //padding-right: 50px;
+
+    //top: 50%;
+    //left: 50%;
+    margin-top: 20px;
+    margin-left: 45%;
+    margin-right: 50%;
+    //transform: translate(-50%, -50%)
+}
+
+#submitButton {
+    //position: relative;
+    //border-style: dotted;
+    //border-width: 1px;
+    margin-top: 20px;
+    margin-left: 49%;
+    margin-right: 50%;
+    //transform: translate(-50%, -50%)
+}
+#loaderPic {
+	margin-top: 20px;
+        margin-left: 50%;
+	margin-right:50%;
+}
+#resultButtons {
+    //position: relative;
+    //border-style: dotted;
+    //border-width: 1px;
+    //background-color: #4CAF50;
+    margin-top: 20px;
+    margin-left: 30%;
+    margin-right: 30%;
+    //transform: translate(-50%, -50%)
+}
+.button {
+	//font-size: 16px;
+	border-radius: 4px;
+	background-color: #008CBA;
+}
+.button:hover {
+    background-color: #FFFFFF;
+    color: #008CBA;
+}
+#lingo-results,#kmeans-results,#stc-results {
+        border-style: dotted;
+	border-width: 1px;
+	margin-top: 20px;
+        display: none;
+}
+a:link{
+	color: #5B6EC9;
+}
+a:visited{
+	color: #E43f4D;
+}
+a:hover{
+	color: #C584A7;
+}
+a:active{
+	color: #C8A780;
+}
