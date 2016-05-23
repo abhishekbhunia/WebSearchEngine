@@ -71,87 +71,7 @@ public class IndexFiles {
   
   private IndexFiles() {}
 
-  /** Index all text files under a directory. */
-  /*
-  public static void main(String[] args) {
-    String usage = "java org.apache.lucene.demo.IndexFiles"
-                 + " [-index INDEX_PATH] [-docs DOCS_PATH] [-update]\n\n"
-                 + "This indexes the documents in DOCS_PATH, creating a Lucene index"
-                 + "in INDEX_PATH that can be searched with SearchFiles";
-    String indexPath = "index";
-    String docsPath = null;
-    boolean create = true;
-    for(int i=0;i<args.length;i++) {
-      if ("-index".equals(args[i])) {
-        indexPath = args[i+1];
-        i++;
-      } else if ("-docs".equals(args[i])) {
-        docsPath = args[i+1];
-        i++;
-      } else if ("-update".equals(args[i])) {
-        create = false;
-      }
-    }
-
-    if (docsPath == null) {
-      System.err.println("Usage: " + usage);
-      System.exit(1);
-    }
-
-    final Path docDir = Paths.get(docsPath);
-    if (!Files.isReadable(docDir)) {
-      System.out.println("Document directory '" +docDir.toAbsolutePath()+ "' does not exist or is not readable, please check the path");
-      System.exit(1);
-    }
-    
-    Date start = new Date();
-    try {
-      System.out.println("Indexing to directory '" + indexPath + "'...");
-
-      Directory dir = FSDirectory.open(Paths.get(indexPath));
-      Analyzer analyzer = new StandardAnalyzer();
-      IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
-
-      if (create) {
-        // Create a new index in the directory, removing any
-        // previously indexed documents:
-        iwc.setOpenMode(OpenMode.CREATE);
-      } else {
-        // Add new documents to an existing index:
-        iwc.setOpenMode(OpenMode.CREATE_OR_APPEND);
-      }
-
-      // Optional: for better indexing performance, if you
-      // are indexing many documents, increase the RAM
-      // buffer.  But if you do this, increase the max heap
-      // size to the JVM (eg add -Xmx512m or -Xmx1g):
-      //
-      // iwc.setRAMBufferSizeMB(256.0);
-
-      IndexWriter writer = new IndexWriter(dir, iwc);
-      indexDocs(writer, docDir);
-
-      // NOTE: if you want to maximize search performance,
-      // you can optionally call forceMerge here.  This can be
-      // a terribly costly operation, so generally it's only
-      // worth it when your index is relatively static (ie
-      // you're done adding documents to it):
-      //
-      // writer.forceMerge(1);
-
-      writer.close();
-
-      Date end = new Date();
-      System.out.println(end.getTime() - start.getTime() + " total milliseconds");
-
-    } catch (IOException e) {
-      System.out.println(" caught a " + e.getClass() +
-       "\n with message: " + e.getMessage());
-    }
-  }
-
   
-  */
   /**
    * Indexes the given file using the given writer, or if a directory is given,
    * recurses over files and directories found under the given directory.
@@ -199,12 +119,7 @@ public class IndexFiles {
   /** Indexes a single document */
   static void indexDoc(IndexWriter writer, Path file, long lastModified) throws IOException {
     try (InputStream stream = Files.newInputStream(file)) {
-      // make a new, empty document
-      //Document doc = new Document();
-      
-      
-    	File f = new File(file.toString());
-    	////System.out.println("file length: " + f.length());
+     File f = new File(file.toString());
     	if(f.length() == 0){
     		System.err.println("0 byte file. exiting\n\n");
     		//return;
